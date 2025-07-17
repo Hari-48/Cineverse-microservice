@@ -1,15 +1,19 @@
 package com.hari.user_service.controller;
 
-import com.hari.user_service.entity.MyUser;
+
+import com.hari.user_service.entity.CinemaUser;
 import com.hari.user_service.model.Login;
-import com.hari.user_service.model.MyUserPayload;
-import com.hari.user_service.repo.MyUserRepo;
+
+import com.hari.user_service.model.RegisterRequest;
+import com.hari.user_service.repo.CinemaUserRepo;
+
 import com.hari.user_service.service.AuthFeignClient;
 
-import com.hari.user_service.service.MyUserService;
+
+import com.hari.user_service.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpRequest;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,24 +23,23 @@ import org.springframework.web.bind.annotation.*;
 public class MyUserController {
 
 
-    @GetMapping("/list")
-    public ResponseEntity<?> listUser(HttpServletRequest request){
-        String auth = request.getHeader("Authorization");
-        System.out.println("🧾 user-service received token: " + auth);
-        return myUserService.listAllUser();
-    }
-
-
-    private final  MyUserService myUserService;
+    private final UserService userService;
 
     private final AuthFeignClient authFeignClient;
 
+    private final CinemaUserRepo cinemaUserRepo;
 
-    private final MyUserRepo myUserRepo;
 
-    @PostMapping("/create")
-    public ResponseEntity<?> createUser(@RequestBody MyUserPayload user){
-         return myUserService.createUser(user);
+    @GetMapping("/view-user")
+    public ResponseEntity<?> listUser(HttpServletRequest request){
+        String auth = request.getHeader("Authorization");
+        System.out.println("🧾 user-service received token: " + auth);
+        return userService.listAllUser();
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> createUser(@RequestBody RegisterRequest user){
+         return userService.createUser(user);
     }
 
 
@@ -49,14 +52,14 @@ public class MyUserController {
 
     @PostMapping("/delete")
     public ResponseEntity<?> deleteUser(@RequestParam Long userId){
-        return myUserService.deleteUser(userId);
+        return userService.deleteUser(userId);
 
     }
 
 
-    @GetMapping("/user/by-username/{username}")
-    MyUser getUserByUsername(@PathVariable("username") String username){
-        return myUserRepo.findByName(username);
+    @GetMapping("/by-username/{username}")
+    CinemaUser getUserByUsername(@PathVariable("username") String username){
+        return cinemaUserRepo.findByUserName(username);
     }
 }
 
