@@ -23,6 +23,14 @@ public class JwtValidationGatewayFilterFactory extends
     public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
             String path = exchange.getRequest().getPath().value();
+
+
+            // ✅ Allow /user/register without token
+            if (path.equals("/user/register")) {
+                return chain.filter(exchange);
+            }
+
+
             String token =
                     exchange.getRequest().getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
             if (token == null || !token.startsWith("Bearer ")) {
