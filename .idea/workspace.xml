@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="262028e9-6dc3-48c2-aedc-fe294f82a67b" name="Changes" comment="">
+    <list default="true" id="f344619d-cc7d-4ca8-87e8-251ade391a35" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Cineverse-microservice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service-api/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service-api/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +22,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2zu2bKf73y1Ejdu4vgjI1JyvSoB" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2zzTMQ4cRnuKtNLAvjU0ZX2qbYP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,20 +34,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.GatewayServiceApiApplication.executor": "Run",
-    "Maven. [clean,install].executor": "Run",
-    "Maven. [clean].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "last_opened_file_path": "/home/hariharasudhan/Music/Cineverse-microservice/gateway-service-api",
-    "settings.editor.selected.configurable": "build.tools"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "api-gateway",
+    "last_opened_file_path": "/home/hariharasudhan/Music/AUTH/Cineverse-microservice",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn clean" />
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="GatewayServiceApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.hari.gateway_service_api.GatewayServiceApiApplication" />
@@ -64,11 +67,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="262028e9-6dc3-48c2-aedc-fe294f82a67b" name="Changes" comment="" />
-      <created>1752566707694</created>
+      <changelist id="f344619d-cc7d-4ca8-87e8-251ade391a35" name="Changes" comment="" />
+      <created>1752732853502</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1752566707694</updated>
+      <updated>1752732853502</updated>
     </task>
     <servers />
   </component>
