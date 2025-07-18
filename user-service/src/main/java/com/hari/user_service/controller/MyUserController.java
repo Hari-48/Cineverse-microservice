@@ -9,6 +9,7 @@ import com.hari.user_service.repo.CinemaUserRepo;
 
 import com.hari.user_service.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class MyUserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> createUser(@RequestBody RegisterRequest user){
+    public ResponseEntity<?> createUser(@Valid @RequestBody RegisterRequest user){
          return userService.createUser(user);
     }
 
