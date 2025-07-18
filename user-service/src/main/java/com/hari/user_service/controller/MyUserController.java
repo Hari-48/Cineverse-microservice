@@ -7,9 +7,6 @@ import com.hari.user_service.model.Login;
 import com.hari.user_service.model.RegisterRequest;
 import com.hari.user_service.repo.CinemaUserRepo;
 
-import com.hari.user_service.service.AuthFeignClient;
-
-
 import com.hari.user_service.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -22,13 +19,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MyUserController {
 
-
     private final UserService userService;
 
-    private final AuthFeignClient authFeignClient;
-
     private final CinemaUserRepo cinemaUserRepo;
-
 
     @GetMapping("/view-user")
     public ResponseEntity<?> listUser(HttpServletRequest request){
@@ -43,19 +36,10 @@ public class MyUserController {
     }
 
 
-    @PostMapping("/login")
-    public String login(@RequestBody Login user) {
-        return authFeignClient.login(user);
-    }
-
-
-
     @PostMapping("/delete")
     public ResponseEntity<?> deleteUser(@RequestParam Long userId){
         return userService.deleteUser(userId);
-
     }
-
 
     @GetMapping("/by-username/{username}")
     CinemaUser getUserByUsername(@PathVariable("username") String username){
