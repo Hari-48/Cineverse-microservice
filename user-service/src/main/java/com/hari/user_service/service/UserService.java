@@ -11,4 +11,6 @@ public interface UserService{
     ResponseEntity<?> createUser(RegisterRequest user);
     ResponseEntity<?>  deleteUser(Long id);
     ResponseEntity<?> listAllUser();
+
+    ResponseEntity<?> changePassword(String userName , String oldPassword, String newPassword);
 }

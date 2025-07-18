@@ -46,5 +46,11 @@ public class MyUserController {
     CinemaUser getUserByUsername(@PathVariable("username") String username){
         return cinemaUserRepo.findByUserName(username);
     }
+
+
+    @PutMapping("/change-password")
+    public ResponseEntity<?> changePassword(@RequestParam String userName,  @RequestParam String oldPassword , @RequestParam String newPassword){
+        return userService.changePassword(userName ,oldPassword , newPassword);
+    }
 }
 

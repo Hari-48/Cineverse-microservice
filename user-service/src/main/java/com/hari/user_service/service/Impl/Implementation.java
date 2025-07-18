@@ -4,6 +4,7 @@ import com.hari.user_service.entity.CinemaUser;
 
 import com.hari.user_service.model.RegisterRequest;
 
+import com.hari.user_service.model.RegisterResponse;
 import com.hari.user_service.repo.CinemaUserRepo;
 
 import com.hari.user_service.service.UserService;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -30,21 +32,48 @@ public class Implementation implements UserService {
     @Override
     public ResponseEntity<?> createUser(RegisterRequest user) {
 
-        CinemaUser cinemaUser = new CinemaUser(
-                user.getUserName(),
-                validEmail(user.getEmail()),
-//                user.getEmail(),
-                user.getAge(),user.getFirstName(),user.getLastName(),user.getMobileNumber(),user.getDateOfBirth(),user.getUserType());
+        CinemaUser username = cinemaUserRepo.findByUserName(user.getUserName());
+        if (username == null) {
+            CinemaUser cinemaUser = new CinemaUser(
+                    validateUserName(user.getUserName()),
+                    validEmail(user.getEmail()),
+                    user.getAge(), user.getFirstName(), user.getLastName(), user.getMobileNumber(), user.getDateOfBirth(), user.getUserType());
 
+            cinemaUser.setSpecialId(getMyUserId(user.getUserName()));
+            cinemaUser.setPassword(getHashcode(user.getPassword()));
+            cinemaUser.setCreatedAt(LocalDateTime.now());
+            cinemaUser.setUpdatedAt(LocalDateTime.now());
+            Long id = cinemaUserRepo.save(cinemaUser).getId();
 
+            RegisterResponse registerResponse = new RegisterResponse(
+                    id
+                    ,user.getUserName()
+                    , user.getEmail()
+                    , user.getAge()
+                    , user.getFirstName()
+                    , user.getLastName()
+                    , user.getMobileNumber()
+                    , user.getDateOfBirth()
+                    , getMyUserId(user.getUserName()));
 
-        cinemaUser.setSpecialId(getMyUserId(user.getUserName()));
-        cinemaUser.setPassword(getHashcode(user.getPassword()));
-        cinemaUser.setCreatedAt(LocalDateTime.now());
-        cinemaUser.setUpdatedAt(LocalDateTime.now());
-
-        return  new ResponseEntity<>(cinemaUserRepo.save(cinemaUser), HttpStatus.CREATED);
+            return new ResponseEntity<>(registerResponse, HttpStatus.CREATED);
+        }
+        else {
+            return new ResponseEntity<>("USER ALREADY , PRESENT", HttpStatus.CREATED);
+        }
     }
+
+    private String validateUserName(String userName) {
+       CinemaUser cinemaUser =  cinemaUserRepo.findByUserName(userName);
+       if(cinemaUser==null){
+           return userName;
+       }
+       else {
+           throw new RuntimeException("user already present, try with another name.");
+       }
+    }
+
+
 
     private String validEmail(String email) {
 
@@ -57,7 +86,6 @@ public class Implementation implements UserService {
             throw new IllegalArgumentException("Invalid email format");
         }
         return email;
-
 
     }
 
@@ -85,6 +113,22 @@ public class Implementation implements UserService {
     @Override
     public ResponseEntity<?> listAllUser(){
        return new ResponseEntity<>(cinemaUserRepo.findAll(),HttpStatus.OK);
+    }
+
+
+    @Override
+    public ResponseEntity<?> changePassword(String userName ,String oldPassword, String newPassword) {
+        CinemaUser cinemaUser = cinemaUserRepo.findByUserName(userName);
+        if (cinemaUser!= null) {
+            if (oldPassword.equals(cinemaUser.getPassword())) {
+                cinemaUser.setPassword(newPassword);
+                cinemaUserRepo.saveAndFlush(cinemaUser);
+                return new ResponseEntity<>("New password  has update", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Enter the correct password ", HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
     }
 
 }
