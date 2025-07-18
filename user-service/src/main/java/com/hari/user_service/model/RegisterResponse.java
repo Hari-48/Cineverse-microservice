@@ -32,3 +32,18 @@ public class RegisterResponse {
 
 
 }
+
+//import java.time.LocalDate;
+//
+//public record RegisterResponse(
+//        Long id,
+//        String userName,
+//        String email,
+//        Long age,
+//        String firstName,
+//        String lastName,
+//        String mobileNumber,
+//        LocalDate dateOfBirth,
+//        String specialId
+//) {}
+

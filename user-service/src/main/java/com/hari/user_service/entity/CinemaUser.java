@@ -52,6 +52,9 @@ public class CinemaUser {
 
         private String specialId;
 
+
+
+
         public CinemaUser() {
         }
 }
