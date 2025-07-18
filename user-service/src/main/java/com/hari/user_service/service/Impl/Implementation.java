@@ -30,8 +30,13 @@ public class Implementation implements UserService {
     @Override
     public ResponseEntity<?> createUser(RegisterRequest user) {
 
-        CinemaUser cinemaUser = new CinemaUser(user.getUserName(),user.getEmail(),
+        CinemaUser cinemaUser = new CinemaUser(
+                user.getUserName(),
+                validEmail(user.getEmail()),
+//                user.getEmail(),
                 user.getAge(),user.getFirstName(),user.getLastName(),user.getMobileNumber(),user.getDateOfBirth(),user.getUserType());
+
+
 
         cinemaUser.setSpecialId(getMyUserId(user.getUserName()));
         cinemaUser.setPassword(getHashcode(user.getPassword()));
@@ -41,6 +46,20 @@ public class Implementation implements UserService {
         return  new ResponseEntity<>(cinemaUserRepo.save(cinemaUser), HttpStatus.CREATED);
     }
 
+    private String validEmail(String email) {
+
+        String regex = "^[a-z][a-zA-Z0-9]+@[a-z]+\\.[a-z]{2,6}$";
+//        String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+
+//        return email.matches(regex) ? email : "invalid-email";
+
+        if (!email.matches(regex)) {
+            throw new IllegalArgumentException("Invalid email format");
+        }
+        return email;
+
+
+    }
 
 
     private String getHashcode(String password) {
