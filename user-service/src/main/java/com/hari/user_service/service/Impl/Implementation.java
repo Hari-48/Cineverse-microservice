@@ -117,18 +117,24 @@ public class Implementation implements UserService {
 
 
     @Override
-    public ResponseEntity<?> changePassword(String userName ,String oldPassword, String newPassword) {
+    public ResponseEntity<?> changePassword(String userName, String oldPassword, String newPassword) {
         CinemaUser cinemaUser = cinemaUserRepo.findByUserName(userName);
-        if (cinemaUser!= null) {
-            if (oldPassword.equals(cinemaUser.getPassword())) {
-                cinemaUser.setPassword(newPassword);
+
+        if (cinemaUser != null) {
+            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
+            // Check if oldPassword matches the current password (after decoding, if necessary)
+            if (bCryptPasswordEncoder.matches(oldPassword, cinemaUser.getPassword())) {
+                // Encode and set the new password
+                cinemaUser.setPassword(bCryptPasswordEncoder.encode(newPassword));
                 cinemaUserRepo.saveAndFlush(cinemaUser);
-                return new ResponseEntity<>("New password  has update", HttpStatus.OK);
+                return ResponseEntity.ok("Password updated successfully");
             } else {
-                return new ResponseEntity<>("Enter the correct password ", HttpStatus.OK);
+                return ResponseEntity.badRequest().body("Incorrect old password");
             }
         }
-        return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.notFound().build();
     }
 
 }
