@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/discover-service/pom.xml" />
+        <option value="$PROJECT_DIR$/movie-service/pom.xml" />
       </list>
     </option>
   </component>

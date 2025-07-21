@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/genre")
+@RequestMapping("movie/genre")
 @RequiredArgsConstructor
 public class GenreController {
 
