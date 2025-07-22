@@ -4,7 +4,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+
         <option value="$PROJECT_DIR$/review-service/review-and-rating-service/pom.xml" />
+
       </list>
     </option>
   </component>
