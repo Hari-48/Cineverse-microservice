@@ -1,349 +1,133 @@
-# Cineverse-microservice
-
 # 🎬 CineVerse – Smart Movie Ticketing & Recommendation Platform
 
-## Overview
-
-CineVerse is a microservice-based movie ticket booking and review platform built with Java, Spring Boot, Kafka, Spring Batch, Spring Security, Docker, and MySQL. It enables users to browse movies, book tickets, write reviews, and receive personalized recommendations, while admins get detailed analytics and control over content.
+CineVerse is a **production-ready microservice-based movie ticket booking and review platform** built using **Java, Spring Boot, Kafka, Spring Batch, Spring Security, Docker, and MySQL**. It provides users with a seamless movie booking experience, while offering admins full control over content, analytics, and automated reports.
 
 ---
 
 ## 🚀 Features
 
-- User registration, authentication, and role-based authorization (Admin, User, Manager)
-- Browse now-showing and upcoming movies with showtimes
-- Book tickets with seat selection and QR code ticket generation
-- Write and update movie reviews and ratings
-- Personalized movie recommendations using user preferences and history
-- Real-time notifications for bookings and new releases (Kafka-powered)
-- Batch-generated daily and weekly reports for admins (Spring Batch)
-- A/B testing for movie posters to optimize user engagement
-- Admin dashboard with analytics on bookings, revenue, and ratings
-- Containerized microservices architecture with Docker
+- 🔐 User registration, login/logout, and JWT-based role-based access control (Admin, Manager, User)
+- 🎥 Browse now-showing and upcoming movies with showtimes
+- 🎫 Book, cancel, and reschedule tickets with seat selection
+- 📱 QR code generation for digital ticketing
+- ✍️ Add and update movie reviews and ratings
+- 🎯 Personalized movie recommendations based on viewing history
+- 📢 Real-time Kafka-powered notifications (email/SMS) for bookings and releases
+- 📊 Batch-generated daily/weekly reports (Spring Batch)
+- 🧪 A/B testing support for movie poster optimization
+- 📈 Admin dashboard with detailed analytics on revenue, ratings, and users
+- 🐳 Fully containerized with Docker and Docker Compose
 
 ---
 
-## 🧱 Architecture
+## 🧱 Microservice Architecture
 
-- **Gateway Service**: API routing and JWT authentication
-- **User Service**: Manage users, roles, and authentication
-- **Movie Service**: CRUD movies, showtimes, A/B testing management
-- **Booking Service**: Manage seat availability and ticketing
-- **Review Service**: Ratings and reviews management
-- **Recommendation Service**: Personalized movie recommendations
-- **Batch Report Service**: Generate scheduled reports
-- **Notification Service**: Real-time event consumer and notifier
-
----
-
-## 🛠️ Technology Stack
-
-| Layer         | Technology          |
-| ------------- | ------------------- |
-| Backend       | Java, Spring Boot   |
-| Security      | Spring Security, JWT|
-| Messaging     | Apache Kafka        |
-| Batch Jobs    | Spring Batch        |
-| Database      | MySQL, Redis (cache)|
-| API Gateway   | Spring Cloud Gateway|
-| Containerization | Docker, Docker Compose |
-
----
-
------------------------------------------------------------------------------------------------------------------------------------------------
-# 🎬 CineVerse: Smart Movie Ticketing & Recommendation Platform
-
-## ✨ Project Overview:
-
-CineVerse is a microservice-based movie ticket booking and review platform built using Java, Spring Boot, Kafka, Spring Batch, Spring Security, Docker, and MySQL. It supports user registration, movie browsing, ticket booking, reviewing, personalized recommendations, and admin-level analytics.
-
----
-
-## ⚙️ Microservices Architecture
-
-### 1. **Gateway Service**
-
-* Handles incoming API requests.
-* Performs routing to internal microservices.
-* JWT-based authentication.
-
-### 2. **User Service**
-
-* Register/login/logout (JWT token-based).
-* Profile management.
-* Role-based access: USER, ADMIN.a
-
-### 3. **Movie Service**
-
-* CRUD operations for movies, genres, cast, posters.
-* Showtimes and language options.
-* A/B Testing support for multiple poster versions.
-
-### 4. **Booking Service**
-
-* View available seats.
-* Book, cancel, or reschedule tickets.
-* QR-code generation for digital tickets.
-
-### 5. **Review & Rating Service**
-
-* Users can post and update reviews.
-* Ratings influence movie rankings.
-
-### 6. **Recommendation Service**
-
-* Suggest movies based on genre history and user ratings.
-* Optionally integrated with OpenAI or ML model.
-
-### 7. **Batch Report Service** (Spring Batch)
-
-* Daily/weekly report generation for:
-
-  * Revenue per movie
-  * User activity trends
-  * Top-rated movies
-* Scheduled job runs nightly.
-
-### 8. **Notification Service** (Kafka Consumer)
-
-* Sends real-time email or SMS notifications:
-
-  * Booking confirmation
-  * New movie releases
-  * Watch party invites
-
-### 9. **Admin Dashboard**
-
-* Analytics charts using booked tickets, genres, ratings.
-* Control movie uploads, approve reviews, manage users.
-
----
-
-## 📊 Tech Stack
-
-| Layer       | Tools                   |
-| ----------- | ----------------------- |
-| Backend     | Java, Spring Boot       |
-| Security    | Spring Security, JWT    |
-| Messaging   | Apache Kafka            |
-| Batch Jobs  | Spring Batch            |
-| Database    | MySQL, Redis (optional) |
-| API Gateway | Spring Cloud Gateway    |
-| Deployment  | Docker, Docker Compose  |
-
----
-
-## 🔄 Kafka Topics
-
-* `ticket-booked`
-* `review-posted`
-* `movie-released`
-* `recommendation-updated`
-
----
-
-## 📝 Sample User Roles
-
-* `ROLE_USER`: Can book tickets, write reviews.
-* `ROLE_ADMIN`: Can add/edit/delete movies, generate reports.
-* `ROLE_MANAGER`: Can manage showtimes and seat layouts.
-
----
-
-## ♻️ Redis Caching Ideas
-
-* Top-rated movies per genre
-* Frequently searched movies
-* Nearby theatres by city
-
----
-
-## 💼 Resume Highlights (How to Write This Project):
-
-"Built a production-ready movie ticket booking platform using microservice architecture with Spring Boot, Spring Security (JWT), Kafka (event-driven ticketing & review flow), Spring Batch (automated daily reports), and Docker. Implemented personalized recommendations and A/B testing for movie posters."
-
----
-
-Would you like me to generate sample REST endpoints or a GitHub-style README file next?
-
-i need to download this
-
-Give me as a GitHub-style README file next
-
-
-
------------------------------------------------------------------------------------------------------
-
-
-# 🎬 CineVerse – Smart Movie Ticketing & Recommendation Platform
-
-## Overview
-
-CineVerse is a microservice-based movie ticket booking and review platform built with Java, Spring Boot, Kafka, Spring Batch, Spring Security, Docker, and MySQL. It enables users to browse movies, book tickets, write reviews, and receive personalized recommendations, while admins get detailed analytics and control over content.
-
----
-
-## 🚀 Features
-
-- User registration, authentication, and role-based authorization (Admin, User, Manager)
-- Browse now-showing and upcoming movies with showtimes
-- Book tickets with seat selection and QR code ticket generation
-- Write and update movie reviews and ratings
-- Personalized movie recommendations using user preferences and history
-- Real-time notifications for bookings and new releases (Kafka-powered)
-- Batch-generated daily and weekly reports for admins (Spring Batch)
-- A/B testing for movie posters to optimize user engagement
-- Admin dashboard with analytics on bookings, revenue, and ratings
-- Containerized microservices architecture with Docker
-
----
-
-## 🧱 Architecture
-
-- **Gateway Service**: API routing and JWT authentication
-- **User Service**: Manage users, roles, and authentication
-- **Movie Service**: CRUD movies, showtimes, A/B testing management
-- **Booking Service**: Manage seat availability and ticketing
-- **Review Service**: Ratings and reviews management
-- **Recommendation Service**: Personalized movie recommendations
-- **Batch Report Service**: Generate scheduled reports
-- **Notification Service**: Real-time event consumer and notifier
+| Microservice         | Responsibility                                                                 |
+|----------------------|---------------------------------------------------------------------------------|
+| **Gateway Service**        | Handles routing, JWT validation, and request forwarding                      |
+| **User Service**           | User registration, login, profile updates, and role management               |
+| **Movie Service**          | CRUD for movies, genres, showtimes, and poster A/B testing                  |
+| **Booking Service**        | Seat management, ticket booking/cancelation, and QR code generation         |
+| **Review Service**         | Posting and managing movie reviews and ratings                              |
+| **Recommendation Service** | Generates personalized recommendations based on user activity               |
+| **Batch Report Service**   | Scheduled job to generate and export analytics reports (Spring Batch)       |
+| **Notification Service**   | Kafka consumer for sending email/SMS notifications                          |
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Layer         | Technology          |
-| ------------- | ------------------- |
-| Backend       | Java, Spring Boot   |
-| Security      | Spring Security, JWT|
-| Messaging     | Apache Kafka        |
-| Batch Jobs    | Spring Batch        |
-| Database      | MySQL, Redis (cache)|
-| API Gateway   | Spring Cloud Gateway|
-| Containerization | Docker, Docker Compose |
+| Layer            | Technology                     |
+|------------------|-------------------------------|
+| Backend          | Java 17, Spring Boot          |
+| Security         | Spring Security, JWT          |
+| Messaging        | Apache Kafka                  |
+| Batch Processing | Spring Batch                  |
+| Caching (optional) | Redis                        |
+| Database         | MySQL                         |
+| API Gateway      | Spring Cloud Gateway          |
+| Containerization | Docker, Docker Compose        |
 
 ---
 
------------------------------------------------------------------------------------------------------------------------------------------------
-# 🎬 CineVerse: Smart Movie Ticketing & Recommendation Platform
+## 🔄 Kafka Topics Used
 
-## ✨ Project Overview:
-
-CineVerse is a microservice-based movie ticket booking and review platform built using Java, Spring Boot, Kafka, Spring Batch, Spring Security, Docker, and MySQL. It supports user registration, movie browsing, ticket booking, reviewing, personalized recommendations, and admin-level analytics.
-
----
-
-## ⚙️ Microservices Architecture
-
-### 1. **Gateway Service**
-
-* Handles incoming API requests.
-* Performs routing to internal microservices.
-* JWT-based authentication.
-
-### 2. **User Service**
-
-* Register/login/logout (JWT token-based).
-* Profile management.
-* Role-based access: USER, ADMIN.a
-
-### 3. **Movie Service**
-
-* CRUD operations for movies, genres, cast, posters.
-* Showtimes and language options.
-* A/B Testing support for multiple poster versions.
-
-### 4. **Booking Service**
-
-* View available seats.
-* Book, cancel, or reschedule tickets.
-* QR-code generation for digital tickets.
-
-### 5. **Review & Rating Service**
-
-* Users can post and update reviews.
-* Ratings influence movie rankings.
-
-### 6. **Recommendation Service**
-
-* Suggest movies based on genre history and user ratings.
-* Optionally integrated with OpenAI or ML model.
-
-### 7. **Batch Report Service** (Spring Batch)
-
-* Daily/weekly report generation for:
-
-  * Revenue per movie
-  * User activity trends
-  * Top-rated movies
-* Scheduled job runs nightly.
-
-### 8. **Notification Service** (Kafka Consumer)
-
-* Sends real-time email or SMS notifications:
-
-  * Booking confirmation
-  * New movie releases
-  * Watch party invites
-
-### 9. **Admin Dashboard**
-
-* Analytics charts using booked tickets, genres, ratings.
-* Control movie uploads, approve reviews, manage users.
+| Topic Name             | Description                                  |
+|------------------------|----------------------------------------------|
+| `ticket-booked`        | Triggered on successful ticket booking       |
+| `review-posted`        | Triggered when a user submits a review       |
+| `movie-released`       | Used to notify users about new releases      |
+| `recommendation-updated` | Updates personalized suggestions           |
 
 ---
 
-## 📊 Tech Stack
+## 👤 User Roles
 
-| Layer       | Tools                   |
-| ----------- | ----------------------- |
-| Backend     | Java, Spring Boot       |
-| Security    | Spring Security, JWT    |
-| Messaging   | Apache Kafka            |
-| Batch Jobs  | Spring Batch            |
-| Database    | MySQL, Redis (optional) |
-| API Gateway | Spring Cloud Gateway    |
-| Deployment  | Docker, Docker Compose  |
+| Role           | Permissions                                                   |
+|----------------|---------------------------------------------------------------|
+| `ROLE_USER`    | Can browse movies, book tickets, post reviews                 |
+| `ROLE_MANAGER` | Manage showtimes, seat layouts, and moderate reviews          |
+| `ROLE_ADMIN`   | Full access to CRUD movies, analytics, and report generation  |
 
 ---
 
-## 🔄 Kafka Topics
+## ♻️ Redis Caching (Optional)
 
-* `ticket-booked`
-* `review-posted`
-* `movie-released`
-* `recommendation-updated`
-
----
-
-## 📝 Sample User Roles
-
-* `ROLE_USER`: Can book tickets, write reviews.
-* `ROLE_ADMIN`: Can add/edit/delete movies, generate reports.
-* `ROLE_MANAGER`: Can manage showtimes and seat layouts.
+- Top-rated movies by genre
+- Frequently searched movies
+- Popular theatres by city
 
 ---
 
-## ♻️ Redis Caching Ideas
+## 📊 Admin Dashboard Highlights
 
-* Top-rated movies per genre
-* Frequently searched movies
-* Nearby theatres by city
-
----
-
-## 💼 Resume Highlights (How to Write This Project):
-
-"Built a production-ready movie ticket booking platform using microservice architecture with Spring Boot, Spring Security (JWT), Kafka (event-driven ticketing & review flow), Spring Batch (automated daily reports), and Docker. Implemented personalized recommendations and A/B testing for movie posters."
+- Visual charts for bookings, revenue, and ratings
+- Control over movie uploads and A/B poster variants
+- Moderate and approve reviews
+- Monitor active users and trends
 
 ---
 
-Would you like me to generate sample REST endpoints or a GitHub-style README file next?
+## 📁 Reports Generated (via Spring Batch)
 
-i need to download this
+- Daily and weekly reports on:
+  - Revenue per movie
+  - User activity trends
+  - Top-rated and most-watched movies
 
-Give me as a GitHub-style README file next
+---
 
+## 🧪 A/B Testing for Posters
 
+- Upload multiple poster versions
+- Track performance via click-through or booking rate
+- Automatically determine most engaging variant
 
+---
+
+## 💡 Recommendation Engine
+
+- Tracks user's genre preferences and review history
+- Suggests relevant movies with personalized touch
+- Optionally pluggable with ML/AI model (e.g., OpenAI)
+
+---
+
+## 💼 Resume Line (for job seekers)
+
+> Built a scalable microservice-based movie ticketing platform using Java, Spring Boot, Kafka, Spring Security, and Spring Batch. Implemented personalized recommendations, A/B testing for UI engagement, and real-time Kafka-driven notifications. Deployed using Docker in a containerized architecture.
+
+---
+
+## 📦 How to Run the Project
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/cineverse-microservice.git
+cd cineverse-microservice
+
+# Run all services using Docker Compose
+docker-compose up --build
+
+# Access gateway at:
+http://localhost:8080
