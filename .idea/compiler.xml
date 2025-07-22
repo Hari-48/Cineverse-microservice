@@ -4,17 +4,24 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
 
+      <profile name="Annotation profile for review-and-rating-service" enabled="true">
+
+
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
-      
+
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+
+        </processorPath>
+        <module name="review-and-rating-service" />
+
 
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
@@ -32,12 +39,17 @@
 
         </processorPath>
         <module name="booking-service" />
+
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+
+      <module name="review-and-rating-service" options="-parameters" />
+
       <module name="booking-service" options="-parameters" />
+
 
     </option>
   </component>
