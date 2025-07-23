@@ -1,6 +1,11 @@
 
 # Cineverse-microservice
 
+-- MOVIE - SERVICE
+![img.png](img.png)
+
+# Cineverse-microservice
+
 
 <!-- 
 -- USER - SERVICE
@@ -167,4 +172,5 @@ docker-compose up --build
 
 # Access gateway at:
 http://localhost:8080
+
 
