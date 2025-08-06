@@ -1,0 +1,15 @@
+{
+  "table": "TAMIL_MOVIES",
+  "fields": [
+    "movieName",
+    "genre",
+    "rating",
+    "director",
+    "actor",
+    "peopleVote",
+    "year",
+    "heroRating",
+    "movieRating",
+    "contentRating"
+  ]
+}
