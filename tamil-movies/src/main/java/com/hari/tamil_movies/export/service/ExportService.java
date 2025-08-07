@@ -189,16 +189,16 @@ public class ExportService
         if (!directory.exists()) {
             directory.mkdirs();
         }
-        else {
-            File[] files = directory.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    if (file.isFile()) {
-                        deleteRecursively(file);
-                    }
-                }
-            }
-        }
+//        else {
+//            File[] files = directory.listFiles();
+//            if (files != null) {
+//                for (File file : files) {
+//                    if (file.isFile()) {
+//                        deleteRecursively(file);
+//                    }
+//                }
+//            }
+//        }
 
         // Split data into chunks of 100
         int chunkSize = 100000;
