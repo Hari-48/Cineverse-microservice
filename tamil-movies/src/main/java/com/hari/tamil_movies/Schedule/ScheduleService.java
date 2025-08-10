@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 
-@Component
+//@Component
 public class ScheduleService implements InitializingBean, Job {
 
     @Autowired

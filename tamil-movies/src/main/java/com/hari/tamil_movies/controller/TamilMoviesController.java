@@ -6,6 +6,8 @@ import com.hari.tamil_movies.export.service.DownloadService;
 import com.hari.tamil_movies.repo.TamilMovieRepo;
 import com.hari.tamil_movies.service.TamilMoviesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @RestController
@@ -26,7 +29,6 @@ public class TamilMoviesController {
     @Autowired
     private TamilMovieRepo tamilMovieRepo;
 
-
     @Autowired
     private DownloadService downloadService;
 
@@ -34,17 +36,15 @@ public class TamilMoviesController {
 
     private TamilMoviesService tamilMoviesService;
 
+
+
     @GetMapping("/get-all")
-    private ResponseEntity<?> getAllMovies() {
-        return new ResponseEntity<>(tamilMovieRepo.findAll(), HttpStatus.OK);
+    private List<String> getAllMovies() {
+
+
+        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "movieName"));
+        return tamilMoviesService.findAll(pageRequest);
     }
-
-
-
-
-
-
-
 
 
 
