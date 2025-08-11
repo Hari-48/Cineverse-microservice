@@ -40,8 +40,6 @@ public class TamilMoviesController {
 
     @GetMapping("/get-all")
     private List<String> getAllMovies() {
-
-
         PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "movieName"));
         return tamilMoviesService.findAll(pageRequest);
     }
@@ -78,6 +76,7 @@ public class TamilMoviesController {
 //        DownloadJob job = downloadService.createNewJob(fileName, "hari-scheduler");
 //        tamilMoviesService.exportData(job);
 //    }
+
 
 
 

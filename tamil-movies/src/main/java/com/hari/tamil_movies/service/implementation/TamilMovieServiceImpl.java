@@ -44,11 +44,10 @@ public class TamilMovieServiceImpl implements TamilMoviesService {
     }
 
 
-    @Cacheable(value = "movies")
+//    @Cacheable(value = "movies")
     @Override
     public List<String> findAll(PageRequest pageRequest) {
         System.out.println("Fetching from DB for movie id ");
-
         List<String> movies = new ArrayList<>();
         Page<Movies> pageRequestList =tamilMovieRepo.findAll(pageRequest);
         pageRequestList.stream().forEach(f->movies.add(f.getMovieName()));

@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+#
+#  app:
+#    container_name: tamil-movies
+#    build: .
+#    ports:
+#      - "8080:8008"
+##    depends_on:
+##      - mysql
+##      - redis
+#    networks:
+#      - cineverse-network
+
+
+  tamil-movies:
+    build: .
+    container_name: tamil-movies-app
+    networks:
+      - cineverse-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/CineVerse
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: mypassword
+
+    ports:
+      - "8080:8008"
+#      SPRING_REDIS_HOST: redis-container
+#      SPRING_REDIS_PORT: 6379
+
+
+#
+#  mysql:
+#    image: mysql:latest   # Will use your local mysql:latest image
+#    container_name: mysql-container
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: CineVerse
+#      MYSQL_USER: myuser
+#      MYSQL_PASSWORD: mypassword
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+#    networks:
+#      - hari-net
+
+
+
+#
+#  redis:
+#    image: redis:7.2-alpine   # Will use your local redis:7.2-alpine image
+#    container_name: redis
+#    ports:
+#      - "6379:6379"
+#    restart: always
+#    volumes:
+#      - redis_data:/data
+#    networks:
+#      - hari-net
+
+
+
+#networks:
+#  hari-net:
+#    driver: bridge
+
+
+
+#volumes:
+#  mysql-data:
+#    driver: local
+#  redis_data:
+#    driver: local
+
+
+networks:
+  cineverse-network:
+    external: true

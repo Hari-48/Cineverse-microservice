@@ -138,7 +138,6 @@ public class controller {
         // Log the extracted columns
         log.info("Columns extracted: {}", fields);
         return columnDefinitions;
-
     }
 
 
