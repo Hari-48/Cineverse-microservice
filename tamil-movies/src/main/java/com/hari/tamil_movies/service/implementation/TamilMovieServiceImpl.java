@@ -1,6 +1,7 @@
 package com.hari.tamil_movies.service.implementation;
 
 import com.hari.tamil_movies.entity.Movies;
+import com.hari.tamil_movies.exceptionHandling.ResourceNotFoundException;
 import com.hari.tamil_movies.export.entity.DownloadJob;
 import com.hari.tamil_movies.export.service.ExportService;
 import com.hari.tamil_movies.repo.TamilMovieRepo;
@@ -54,8 +55,21 @@ public class TamilMovieServiceImpl implements TamilMoviesService {
         return movies;
     }
 
+    @Override
+    public List<Movies> findAllMovies() {
+        return tamilMovieRepo.findAll();
+    }
 
+    @Override
+    public List<Movies> findByActorName(String actorName) {
+        return tamilMovieRepo.findByActorName(actorName);
+    }
 
+    @Override
+    public Movies findMovieById(Long id) {
+        return tamilMovieRepo.findById(id).orElseThrow(() ->
+         new ResourceNotFoundException("movie not found on this id -> "+id));
+    }
 
 
 }

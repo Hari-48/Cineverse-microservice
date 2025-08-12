@@ -1,6 +1,7 @@
 package com.hari.tamil_movies.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.hari.tamil_movies.entity.Movies;
 import com.hari.tamil_movies.export.entity.DownloadJob;
 import com.hari.tamil_movies.export.service.ExportService;
 import com.hari.tamil_movies.repo.TamilMovieRepo;
@@ -25,6 +26,12 @@ public interface TamilMoviesService {
     public CompletableFuture<Void> exportData(DownloadJob downloadJob);
 
     public List<String> findAll(PageRequest pageRequest);
+
+    List<Movies> findAllMovies();
+
+    List<Movies> findByActorName(String actorName);
+
+    Movies findMovieById(Long id);
 
 
 //    public CompletableFuture<Void> exportData(DownloadJob job) throws JsonProcessingException {

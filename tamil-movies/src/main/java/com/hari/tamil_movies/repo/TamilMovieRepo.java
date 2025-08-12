@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface TamilMovieRepo extends JpaRepository<Movies,Long> {
 
@@ -21,15 +23,10 @@ public interface TamilMovieRepo extends JpaRepository<Movies,Long> {
     @Query(value = "SELECT * FROM TAMIL_MOVIES WHERE ACTOR = 'Vimal' ", nativeQuery = true)
     Page<Movies> getAllData(Pageable pageable);
 
-
-
-
-
-
-
-
-
-
+    @Query(value = """
+            SELECT * FROM TAMIL_MOVIES WHERE ACTOR = :actorName
+            """,nativeQuery = true)
+    List<Movies> findByActorName(String actorName);
 
 
 //JPQL
