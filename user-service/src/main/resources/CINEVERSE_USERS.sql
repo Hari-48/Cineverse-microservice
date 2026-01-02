@@ -1,0 +1,11 @@
+NSERT INTO CINEVERSE_USERS
+(ID,AGE,CREATED_AT,DOB,EMAIL,FIRST_NAME,ISACTIVE,LAST_NAME,MOBILE_NUMBER,PASSWORD,UPDATED_AT,USER_NAME,USERTYPE)
+VALUES
+(1, 18, CURRENT_TIMESTAMP, DATE '2007-01-10', 'user1@cineverse.com', 'Arun', 'Y', 'Kumar', '9000000001', 'pass1', CURRENT_TIMESTAMP, 'arun01', 'REGULAR'),
+(2, 22, CURRENT_TIMESTAMP, DATE '2003-05-14', 'user2@cineverse.com', 'Bala', 'Y', 'S', '9000000002', 'pass2', CURRENT_TIMESTAMP, 'bala02', 'PRIME'),
+(3, 28, CURRENT_TIMESTAMP, DATE '1997-09-21', 'user3@cineverse.com', 'Chitra', 'Y', 'R', '9000000003', 'pass3', CURRENT_TIMESTAMP, 'chitra03', 'REGULAR'),
+(4, 35, CURRENT_TIMESTAMP, DATE '1989-12-02', 'moderator@cineverse.com', 'Deepak', 'Y', 'M', '9000000004', 'pass4', CURRENT_TIMESTAMP, 'deepak04', 'MODERATOR'),
+(5, 40, CURRENT_TIMESTAMP, DATE '1984-03-18', 'admin@cineverse.com', 'Admin', 'Y', 'User', '9000000005', 'admin@123', CURRENT_TIMESTAMP, 'cineadmin', 'ADMIN');
+
+
+

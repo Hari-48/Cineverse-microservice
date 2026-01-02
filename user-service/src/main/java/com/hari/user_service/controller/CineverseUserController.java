@@ -1,50 +1,50 @@
 package com.hari.user_service.controller;
 
+import com.hari.user_service.dto.CineverseUserRequest;
+import com.hari.user_service.dto.CineverseUserResponse;
 
-import com.hari.user_service.entity.CinemaUser;
-import com.hari.user_service.model.Login;
-
-import com.hari.user_service.model.RegisterRequest;
-import com.hari.user_service.repo.CinemaUserRepo;
-
-import com.hari.user_service.service.UserService;
+import com.hari.user_service.service.CineverseUserService;
 import jakarta.servlet.http.HttpServletRequest;
+
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.cloud.openfeign.FeignClient;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/cineverse")
 @RequiredArgsConstructor
-public class MyUserController {
+public class CineverseUserController {
 
-    private final UserService userService;
+    private final CineverseUserService userService;
 
-    private final CinemaUserRepo cinemaUserRepo;
-
-    @GetMapping("/view-user")
-    public ResponseEntity<?> listUser(HttpServletRequest request) {
+    @GetMapping("/user")
+    public ResponseEntity<List<CineverseUserResponse>> viewUsers(HttpServletRequest request) {
         String auth = request.getHeader("Authorization");
-        System.out.println("🧾 user-service received token: " + auth);
-        return userService.listAllUser();
+        System.out.println("user-service received token: " + auth);
+        return userService.viewUsers();
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<?> createUser(@Valid @RequestBody RegisterRequest user) {
-        return userService.createUser(user);
+    @PostMapping("/user")
+    public ResponseEntity<String> saveUser(@Valid @RequestBody CineverseUserRequest cineverseUserRequest) {
+        return userService.saveUser(cineverseUserRequest);
     }
 
 
+}
+
+/*
     @PostMapping("/delete")
     public ResponseEntity<?> deleteUser(@RequestParam Long userId) {
         return userService.deleteUser(userId);
     }
 
     @GetMapping("/by-username/{username}")
-    CinemaUser getUserByUsername(@PathVariable("username") String username) {
+    CineVerseUser getUserByUsername(@PathVariable("username") String username) {
         return cinemaUserRepo.findByUserName(username);
     }
 
@@ -61,7 +61,8 @@ public class MyUserController {
 
         }
 
-    }
+ */
+
 
 
 
